@@ -2,7 +2,7 @@
 
 A production-ready personal portfolio built with **Next.js 14 (App Router)**, **TypeScript**, **Tailwind CSS**, and **Framer Motion**.
 
-Live domain : `https://shadianoor.vercel.app`
+Live domain : https://shadianoor.vercel.app
 
 ---
 
