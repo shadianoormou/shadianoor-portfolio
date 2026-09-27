@@ -6,22 +6,22 @@ const config: Config = {
     extend: {
       colors: {
         base: {
-          950: "#101a14",
-          900: "#1d2a22",
-          800: "#dce7dc",
-          700: "#c4d1c4",
+          950: "#070711",
+          900: "#0d0d1b",
+          800: "#15152b",
+          700: "#232242",
         },
         ink: {
-          100: "#101a14",
-          300: "#2d3b31",
-          500: "#66766a",
-          700: "#9aa99d",
+          100: "#f2f1ff",
+          300: "#d0cdfd",
+          500: "#9893bd",
+          700: "#625d83",
         },
         signal: {
-          blue: "#2f9d82",
-          indigo: "#7fbe45",
-          violet: "#e96d4c",
-          cyan: "#b5e84f",
+          blue: "#65a6ff",
+          indigo: "#7e5bff",
+          violet: "#ff65b3",
+          cyan: "#7fe5ff",
         },
       },
       fontFamily: {
@@ -33,11 +33,11 @@ const config: Config = {
         "grid-fade":
           "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.06) 1px, transparent 0)",
         "aurora":
-          "radial-gradient(60% 50% at 20% 20%, rgba(47,157,130,0.15) 0%, transparent 60%), radial-gradient(50% 45% at 80% 15%, rgba(181,232,79,0.17) 0%, transparent 60%), radial-gradient(55% 55% at 50% 100%, rgba(233,109,76,0.11) 0%, transparent 60%)",
+          "radial-gradient(60% 50% at 20% 20%, rgba(101,166,255,0.18) 0%, transparent 60%), radial-gradient(50% 45% at 80% 15%, rgba(126,91,255,0.16) 0%, transparent 60%), radial-gradient(55% 55% at 50% 100%, rgba(255,101,179,0.13) 0%, transparent 60%)",
       },
       boxShadow: {
-        glow: "0 0 0 1px rgba(16,26,20,0.08), 0 8px 40px -8px rgba(47,157,130,0.28)",
-        "glow-violet": "0 0 0 1px rgba(16,26,20,0.08), 0 8px 40px -8px rgba(233,109,76,0.24)",
+        glow: "0 0 0 1px rgba(255,255,255,0.07), 0 8px 40px -8px rgba(101,166,255,0.34)",
+        "glow-violet": "0 0 0 1px rgba(255,255,255,0.07), 0 8px 40px -8px rgba(255,101,179,0.30)",
       },
       animation: {
         "float-slow": "float 9s ease-in-out infinite",

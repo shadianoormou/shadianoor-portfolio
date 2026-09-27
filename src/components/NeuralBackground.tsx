@@ -80,7 +80,7 @@ export default function NeuralBackground() {
           if (dist < maxDist) {
             const activation = (Math.sin(a.pulse) + 1) / 2;
             const alpha = 0.03 + activation * 0.05 * (1 - dist / maxDist);
-            ctx!.strokeStyle = `rgba(35, 78, 61, ${alpha + 0.02})`;
+            ctx!.strokeStyle = `rgba(127, 112, 255, ${alpha + 0.02})`;
             ctx!.lineWidth = 1;
             ctx!.beginPath();
             ctx!.moveTo(a.x, a.y);
@@ -102,14 +102,14 @@ export default function NeuralBackground() {
         const glow = (Math.sin(n.pulse) + 1) / 2;
         const radius = 1.6 + glow * 1.4;
         const gradient = ctx!.createRadialGradient(n.x, n.y, 0, n.x, n.y, radius * 5);
-        gradient.addColorStop(0, `rgba(33, 91, 67, ${0.18 + glow * 0.24})`);
-        gradient.addColorStop(1, "rgba(33, 91, 67, 0)");
+        gradient.addColorStop(0, `rgba(127, 229, 255, ${0.20 + glow * 0.26})`);
+        gradient.addColorStop(1, "rgba(127, 229, 255, 0)");
         ctx!.fillStyle = gradient;
         ctx!.beginPath();
         ctx!.arc(n.x, n.y, radius * 5, 0, Math.PI * 2);
         ctx!.fill();
 
-        ctx!.fillStyle = `rgba(27, 62, 46, ${0.34 + glow * 0.32})`;
+        ctx!.fillStyle = `rgba(224, 220, 255, ${0.42 + glow * 0.34})`;
         ctx!.beginPath();
         ctx!.arc(n.x, n.y, radius, 0, Math.PI * 2);
         ctx!.fill();
