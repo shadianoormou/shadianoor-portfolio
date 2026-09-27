@@ -20,7 +20,7 @@ const config: Config = {
         signal: {
           blue: "#65a6ff",
           indigo: "#7e5bff",
-          violet: "#ff65b3",
+          violet: "#b88cff",
           cyan: "#7fe5ff",
         },
       },
@@ -33,11 +33,11 @@ const config: Config = {
         "grid-fade":
           "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.06) 1px, transparent 0)",
         "aurora":
-          "radial-gradient(60% 50% at 20% 20%, rgba(101,166,255,0.18) 0%, transparent 60%), radial-gradient(50% 45% at 80% 15%, rgba(126,91,255,0.16) 0%, transparent 60%), radial-gradient(55% 55% at 50% 100%, rgba(255,101,179,0.13) 0%, transparent 60%)",
+          "radial-gradient(60% 50% at 20% 20%, rgba(101,166,255,0.18) 0%, transparent 60%), radial-gradient(50% 45% at 80% 15%, rgba(126,91,255,0.18) 0%, transparent 60%), radial-gradient(55% 55% at 50% 100%, rgba(184,140,255,0.13) 0%, transparent 60%)",
       },
       boxShadow: {
         glow: "0 0 0 1px rgba(255,255,255,0.07), 0 8px 40px -8px rgba(101,166,255,0.34)",
-        "glow-violet": "0 0 0 1px rgba(255,255,255,0.07), 0 8px 40px -8px rgba(255,101,179,0.30)",
+        "glow-violet": "0 0 0 1px rgba(255,255,255,0.07), 0 8px 40px -8px rgba(184,140,255,0.32)",
       },
       animation: {
         "float-slow": "float 9s ease-in-out infinite",

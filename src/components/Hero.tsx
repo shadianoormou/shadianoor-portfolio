@@ -50,9 +50,9 @@ export default function Hero() {
           <p className="mb-5 font-mono text-xs uppercase tracking-[0.3em] text-ink-500">Software engineer · Rajshahi, Bangladesh</p>
 
           <h1 className="hero-title max-w-5xl font-display font-semibold text-ink-100">
-            Building <span className="text-gradient">useful</span>
+            Designing <span className="text-gradient">digital</span>
             <br />
-            things with code.
+            systems with intent.
           </h1>
 
           <div className="mt-8 flex min-h-7 items-center gap-3 font-mono text-sm text-signal-cyan sm:text-base">
@@ -97,6 +97,12 @@ export default function Hero() {
         </motion.div>
 
         <motion.div initial={{ opacity: 0, scale: 0.9, y: 20, rotate: 2 }} animate={{ opacity: 1, scale: 1, y: 0, rotate: 0 }} transition={{ duration: 1.05, ease: [0.16, 1, 0.3, 1], delay: 0.15 }} className="hero-portrait-stage relative mx-auto w-full max-w-md">
+          <div aria-hidden="true" className="hero-monogram">SN</div>
+          <div className="hud-label absolute -right-2 top-2 hidden -rotate-90 sm:block">Portfolio / 2026</div>
+          <div className="absolute -bottom-2 left-0 hidden max-w-[10rem] border-l border-signal-blue/50 pl-3 sm:block">
+            <p className="hud-label">Current focus</p>
+            <p className="mt-2 font-display text-sm text-ink-300">AI-powered products &amp; thoughtful interfaces</p>
+          </div>
           <motion.div animate={reduceMotion ? undefined : { rotate: 360 }} transition={{ duration: 32, repeat: Infinity, ease: "linear" }} className="absolute inset-[4%] rounded-full border border-dashed border-signal-cyan/20" />
           <motion.div animate={reduceMotion ? undefined : { rotate: -360 }} transition={{ duration: 24, repeat: Infinity, ease: "linear" }} className="absolute inset-[14%] rounded-full border border-signal-cyan/15" />
 

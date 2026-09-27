@@ -11,7 +11,7 @@
   --line: rgba(145, 125, 255, 0.18);
   --acid: #65a6ff;
   --aqua: #7fe5ff;
-  --coral: #ff65b3;
+  --coral: #b88cff;
   --cursor-x: 50vw;
   --cursor-y: 20vh;
 }
@@ -38,7 +38,7 @@ body {
   font-family: var(--font-body);
   background:
     radial-gradient(circle at 50% -10%, rgba(89, 117, 255, 0.16), transparent 30rem),
-    radial-gradient(circle at 90% 35%, rgba(255, 101, 179, 0.10), transparent 26rem),
+    radial-gradient(circle at 90% 35%, rgba(168, 85, 247, 0.14), transparent 26rem),
     var(--page);
   overflow-x: hidden;
 }
@@ -104,7 +104,7 @@ main > section:nth-of-type(2n + 1):not(#home)::before {
 
 /* Glass panel used across cards */
 .glass {
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.025) 48%, rgba(126, 91, 255, 0.07));
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.085), rgba(255, 255, 255, 0.022) 48%, rgba(126, 91, 255, 0.09));
   border: 1px solid var(--line);
   box-shadow: inset 0 1px 0 rgba(255,255,255,.10), 0 24px 80px rgba(0, 0, 0, .24);
   backdrop-filter: blur(22px);
@@ -118,7 +118,7 @@ main > section:nth-of-type(2n + 1):not(#home)::before {
   border-color: rgba(101, 166, 255, 0.58);
   transform: translateY(-8px);
   box-shadow: 0 28px 80px -25px rgba(101, 166, 255, 0.30), inset 0 1px 0 rgba(255,255,255,.16);
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.035) 48%, rgba(255, 101, 179, 0.08));
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.035) 48%, rgba(168, 85, 247, 0.11));
 }
 
 /* Gradient border wrapper */
@@ -132,7 +132,7 @@ main > section:nth-of-type(2n + 1):not(#home)::before {
   inset: 0;
   padding: 1px;
   border-radius: inherit;
-  background: linear-gradient(135deg, rgba(101, 166, 255, 0.9), rgba(126, 91, 255, 0.38), rgba(255, 101, 179, 0.82));
+  background: linear-gradient(135deg, rgba(101, 166, 255, 0.96), rgba(126, 91, 255, 0.46), rgba(184, 140, 255, 0.86));
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
@@ -140,7 +140,7 @@ main > section:nth-of-type(2n + 1):not(#home)::before {
 }
 
 .text-gradient {
-  background: linear-gradient(100deg, var(--acid), var(--aqua) 55%, var(--coral));
+  background: linear-gradient(100deg, var(--aqua), var(--acid) 38%, var(--coral) 82%, #ffffff);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -191,7 +191,7 @@ main > section:nth-of-type(2n + 1):not(#home)::before {
   border-radius: inherit;
   pointer-events: none;
   content: "";
-  background: linear-gradient(115deg, rgba(201, 255, 90, 0.11), transparent 30%, transparent 65%, rgba(105, 230, 255, 0.08));
+  background: linear-gradient(115deg, rgba(101, 166, 255, 0.16), transparent 30%, transparent 65%, rgba(184, 140, 255, 0.14));
   opacity: 0;
   transition: opacity 0.45s ease;
 }
@@ -209,7 +209,7 @@ main > section:nth-of-type(2n + 1):not(#home)::before {
 .hero-portrait-stage::after {
   position: absolute;
   content: "";
-  border: 1px solid rgba(201, 255, 90, 0.22);
+  border: 1px solid rgba(126, 91, 255, 0.28);
   border-radius: 999px;
   pointer-events: none;
 }
@@ -221,12 +221,36 @@ main > section:nth-of-type(2n + 1):not(#home)::before {
 
 .hero-portrait-stage::after {
   inset: -4% 8% 4% 8%;
-  border-color: rgba(105, 230, 255, 0.18);
+  border-color: rgba(101, 166, 255, 0.24);
   transform: rotate(35deg);
 }
 
+.hero-monogram {
+  position: absolute;
+  left: 1%;
+  top: 3%;
+  z-index: -1;
+  color: transparent;
+  font-family: var(--font-display);
+  font-size: clamp(10rem, 24vw, 22rem);
+  font-weight: 700;
+  letter-spacing: -0.16em;
+  line-height: 0.7;
+  -webkit-text-stroke: 1px rgba(126, 91, 255, 0.25);
+  transform: rotate(-12deg);
+  user-select: none;
+}
+
+.hud-label {
+  color: rgba(127, 229, 255, 0.72);
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
 .scanline {
-  background: linear-gradient(90deg, transparent, rgba(201, 255, 90, .8), transparent);
+  background: linear-gradient(90deg, transparent, rgba(127, 229, 255, .9), transparent);
   animation: scanline 4.5s ease-in-out infinite;
 }
 
@@ -236,7 +260,7 @@ main > section:nth-of-type(2n + 1):not(#home)::before {
 
 .section-rule {
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(201, 255, 90, .32), rgba(105, 230, 255, .18), transparent);
+  background: linear-gradient(90deg, transparent, rgba(101, 166, 255, .5), rgba(184, 140, 255, .3), transparent);
 }
 
 @keyframes scanline {
