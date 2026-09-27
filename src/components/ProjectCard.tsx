@@ -1,13 +1,78 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { FiGithub, FiArrowUpRight } from "react-icons/fi";
+import { FaLinkedin } from "react-icons/fa";
 import { SiLeetcode } from "react-icons/si";
 import Badge from "./Badge";
 import type { Project } from "@/data/profile";
 
 export default function ProjectCard({ project, index }: { project: Project; index: number }) {
+  const [githubSnapshot, setGithubSnapshot] = useState<{
+    description: string | null;
+    updatedAt: string;
+    fileCount: number | null;
+  } | null>(null);
+
+  useEffect(() => {
+    if (!project.githubRepo) return;
+
+    let cancelled = false;
+
+    async function syncFromGitHub() {
+      try {
+        const repoResponse = await fetch(`https://api.github.com/repos/${project.githubRepo}`, {
+          headers: { Accept: "application/vnd.github+json" },
+        });
+        if (!repoResponse.ok) return;
+
+        const repo = await repoResponse.json();
+        let fileCount: number | null = null;
+
+        if (project.title === "LeetCode Solutions Repository") {
+          const treeResponse = await fetch(
+            `https://api.github.com/repos/${project.githubRepo}/git/trees/${repo.default_branch}?recursive=1`,
+            { headers: { Accept: "application/vnd.github+json" } }
+          );
+          if (treeResponse.ok) {
+            const tree = await treeResponse.json();
+            fileCount = Array.isArray(tree.tree)
+              ? tree.tree.filter(
+                  (item: { type?: string; path?: string }) =>
+                    item.type === "blob" &&
+                    Boolean(item.path) &&
+                    /\.(py|js|ts|java|cpp|c|cs)$/i.test(item.path as string)
+                ).length
+              : null;
+          }
+        }
+
+        if (!cancelled) {
+          setGithubSnapshot({
+            description: repo.description ?? null,
+            updatedAt: repo.pushed_at ?? repo.updated_at,
+            fileCount,
+          });
+        }
+      } catch {
+        // The static project copy remains visible if GitHub rate-limits the browser.
+      }
+    }
+
+    syncFromGitHub();
+    return () => {
+      cancelled = true;
+    };
+  }, [project.githubRepo, project.title]);
+
+  const description = githubSnapshot?.description || project.description;
+  const stat =
+    project.title === "LeetCode Solutions Repository" && githubSnapshot?.fileCount
+      ? { value: String(githubSnapshot.fileCount), label: "Solution files · live from GitHub" }
+      : project.stat;
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -29,13 +94,13 @@ export default function ProjectCard({ project, index }: { project: Project; inde
         </div>
       )}
 
-      {project.stat && (
+      {stat && (
         <div className="absolute right-6 top-6 hidden text-right sm:block">
           <p className="font-display text-2xl font-semibold text-gradient">
-            {project.stat.value}
+            {stat.value}
           </p>
           <p className="max-w-[9rem] text-[11px] leading-tight text-ink-500">
-            {project.stat.label}
+            {stat.label}
           </p>
         </div>
       )}
@@ -51,7 +116,7 @@ export default function ProjectCard({ project, index }: { project: Project; inde
       </div>
 
       <p className="mt-5 text-sm leading-relaxed text-ink-500">
-        {project.description}
+        {description}
       </p>
 
       <ul className="mt-5 space-y-2">
@@ -66,6 +131,12 @@ export default function ProjectCard({ project, index }: { project: Project; inde
       {project.liveNote && (
         <p className="mt-5 font-mono text-xs italic text-ink-500">
           {project.liveNote}
+        </p>
+      )}
+
+      {project.githubRepo && githubSnapshot && (
+        <p className="mt-4 text-xs text-ink-700">
+          GitHub sync active · updated {new Date(githubSnapshot.updatedAt).toLocaleDateString("en-GB")}
         </p>
       )}
 
@@ -87,6 +158,16 @@ export default function ProjectCard({ project, index }: { project: Project; inde
             className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium text-ink-300 ring-1 ring-white/10 transition-colors hover:text-ink-100"
           >
             Live site <FiArrowUpRight />
+          </a>
+        )}
+        {project.linkedin && (
+          <a
+            href={project.linkedin}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium text-ink-300 ring-1 ring-white/10 transition-colors hover:text-ink-100"
+          >
+            <FaLinkedin /> LinkedIn <FiArrowUpRight />
           </a>
         )}
         {project.leetcode && (

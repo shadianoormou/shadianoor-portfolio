@@ -23,7 +23,7 @@ export const personal = {
     "I’m a software engineer building practical full-stack products and AI-powered solutions, with a growing focus on machine learning engineering, research, and meaningful community impact.",
   aboutParagraphs: [
     "I'm a Computer Science & Engineering graduate from Varendra University whose work sits at the intersection of full-stack development, AI/ML, research, and competitive programming. I enjoy understanding a problem deeply, then turning that understanding into software that works end to end.",
-    "My recent professional journey includes software engineering and internship experiences across machine learning, web development, and app development. I work comfortably with React.js, Next.js, Node.js, Python, SQL, and applied ML pipelines, while continuing to grow through hands-on projects and mentorship.",
+    "My recent professional journey includes software engineering and machine learning work. I work comfortably with React.js, Next.js, Node.js, Python, SQL, C#, .NET MAUI, ASP.NET, and applied ML pipelines, while continuing to grow through hands-on projects and mentorship.",
     "Beyond code, I’m an IOY Ambassador for 2026–2027, a Delegate for International Youth Conference 14, and a Community Volunteer with the Bangladesh Red Crescent Society’s Rajshahi City Unit. I care about using technical skills alongside leadership, collaboration, and service.",
   ],
   resumeUrl: "/assets/Shadia_Noor_Mou_CV.pdf",
@@ -74,8 +74,8 @@ export const education = [
     degree: "B.Sc. in Computer Science & Engineering",
     institution: "Varendra University, Rajshahi",
     period: "2022 — 2026",
-    detail: "Average CGPA: 3.80 / 4.00",
-    status: "Final result awaiting",
+    detail: "CGPA: 3.78 / 4.00",
+    status: "Final result published",
   },
   {
     degree: "Higher Secondary Certificate (HSC)",
@@ -101,7 +101,7 @@ export type SkillGroup = {
 export const skillGroups: SkillGroup[] = [
   {
     title: "Languages",
-    skills: ["Python", "Java", "C", "C++", "JavaScript", "SQL"],
+    skills: ["Python", "Java", "C", "C++", "C#", "JavaScript", "SQL"],
   },
   {
     title: "Frontend",
@@ -145,6 +145,10 @@ export const skillGroups: SkillGroup[] = [
     ],
   },
   {
+    title: "Microsoft / .NET",
+    skills: ["C#", ".NET MAUI", "ASP.NET"],
+  },
+  {
     title: "Tools",
     skills: ["Git", "GitHub", "VS Code", "NetBeans", "Postman", "Kaggle", "Google Colab"],
   },
@@ -157,6 +161,8 @@ export const skillGroups: SkillGroup[] = [
 export type Project = {
   title: string;
   github: string;
+  githubRepo?: string;
+  linkedin?: string;
   liveUrl?: string;
   image?: string;
   leetcode?: string;
@@ -171,6 +177,8 @@ export const projects: Project[] = [
   {
     title: "Aura_Studio — UGC Creator Portfolio & CMS",
     github: "https://github.com/shadianoormou/Aura_Studio",
+    githubRepo: "shadianoormou/Aura_Studio",
+    linkedin: "https://www.linkedin.com/in/shadia-noor-mou/details/projects/",
     liveUrl: "https://aura-studio-xi-black.vercel.app/",
     image: "/assets/linkedin/aura-studio.jpg",
     tech: ["Next.js", "React", "TypeScript", "Vercel Postgres", "Vercel Blob", "Responsive CSS"],
@@ -186,6 +194,8 @@ export const projects: Project[] = [
   {
     title: "Aurevia Care — Digital Pharmacy & Care Navigator",
     github: "https://github.com/shadianoormou/Aurevia_Care",
+    githubRepo: "shadianoormou/Aurevia_Care",
+    linkedin: "https://www.linkedin.com/in/shadia-noor-mou/details/projects/",
     image: "/assets/linkedin/aurevia-care.jpg",
     tech: ["React", "Express", "Microsoft SQL Server", "Azure SQL", "Voice Search", "Healthcare UX"],
     description:
@@ -199,6 +209,8 @@ export const projects: Project[] = [
   {
     title: "Image-Based Malware Classification using Hybrid CNN-BiLSTM",
     github: "https://github.com/shadianoormou/Malware_Image_Classification_CNN-BiLSTM",
+    githubRepo: "shadianoormou/Malware_Image_Classification_CNN-BiLSTM",
+    linkedin: "https://www.linkedin.com/in/shadia-noor-mou/details/projects/",
     tech: ["Python", "TensorFlow", "Keras", "CNN", "BiLSTM", "NumPy", "Pandas", "Scikit-learn", "Kaggle"],
     description:
       "A research-based malware classification pipeline that converts malware samples into image representations and classifies them using a hybrid CNN-BiLSTM architecture.",
@@ -210,21 +222,9 @@ export const projects: Project[] = [
     stat: { value: "96.13%", label: "Test Accuracy · 96.25% Weighted F1-Score" },
   },
   {
-    title: "MediMart AI — Smart E-Pharmacy Website",
-    github: "https://github.com/shadianoormou/medimart-ai",
-    liveNote: "Live demo can be added later.",
-    tech: ["React.js", "Node.js", "Express.js", "MongoDB", "REST API", "Responsive UI"],
-    description:
-      "A smart e-pharmacy platform covering product browsing, cart and order workflow, an admin dashboard, inventory management, and AI-style search.",
-    features: [
-      "Full cart-to-order workflow with structured product and inventory data",
-      "Admin dashboard for managing products, stock, and orders",
-      "Clean, responsive UI built for real pharmacy-style browsing",
-    ],
-  },
-  {
     title: "LeetCode Solutions Repository",
     github: "https://github.com/shadianoormou/leetcode-solutions",
+    githubRepo: "shadianoormou/leetcode-solutions",
     leetcode: "https://leetcode.com/u/shadianoormou",
     tech: ["Python", "Data Structures", "Algorithms", "Competitive Programming"],
     description:
@@ -270,39 +270,6 @@ export const experiences: Experience[] = [
       "Selected for the FlyRank AI Internship Program to learn from a fast-moving team and contribute to impactful AI solutions for modern search and organic growth.",
     highlights: ["Machine learning engineering", "AI search and organic growth", "Hands-on team learning"],
     image: "/assets/linkedin/flyrank-internship.jpg",
-    link: socials.linkedin,
-  },
-  {
-    role: "Web Development Intern",
-    organization: "Zidio Development",
-    period: "2026 · 3 months",
-    type: "Remote internship",
-    description:
-      "A project-based remote internship focused on strengthening modern web development skills through practical work, collaboration, and guided learning.",
-    highlights: ["Project-based web development", "Modern web practices", "Remote collaboration"],
-    image: "/assets/linkedin/zidio-internship.jpg",
-    link: socials.linkedin,
-  },
-  {
-    role: "App Development Intern",
-    organization: "CodeAlpha",
-    period: "2026",
-    type: "Internship · App development",
-    description:
-      "Selected for an app development internship to gain hands-on experience, learn through delivery, and grow into broader software engineering responsibilities.",
-    highlights: ["Application development", "Hands-on learning", "Career growth"],
-    image: "/assets/linkedin/codealpha-internship.jpg",
-    link: socials.linkedin,
-  },
-  {
-    role: "Web Development Intern",
-    organization: "SoftGrowTech",
-    period: "2026 · 1 month · Remote",
-    type: "Internship",
-    description:
-      "A one-month remote, project-based program with mentor guidance and a focus on learning, building, and evolving as a web developer.",
-    highlights: ["Project-based tasks", "Mentor guidance", "Practical web development"],
-    image: "/assets/linkedin/softgrow-internship.jpg",
     link: socials.linkedin,
   },
 ];
