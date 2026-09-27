@@ -9,6 +9,7 @@ export default function Navbar() {
   const [active, setActive] = useState("#home");
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
     const sections = nav
@@ -28,7 +29,12 @@ export default function Navbar() {
 
     sections.forEach((section) => observer.observe(section));
 
-    const onScroll = () => setScrolled(window.scrollY > 12);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 12);
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      setProgress(max > 0 ? window.scrollY / max : 0);
+    };
+    onScroll();
     window.addEventListener("scroll", onScroll);
 
     return () => {
@@ -44,18 +50,23 @@ export default function Navbar() {
         scrolled ? "py-3" : "py-5"
       )}
     >
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6">
+      <motion.div
+        className="absolute left-0 top-0 h-px origin-left bg-signal-cyan shadow-[0_0_14px_rgba(201,255,90,.8)]"
+        style={{ scaleX: progress, width: "100%" }}
+      />
+      <div className="mx-auto flex max-w-[90rem] items-center justify-between px-6 sm:px-10 xl:px-16">
         <a
           href="#home"
-          className="font-display text-lg font-semibold tracking-tight text-ink-100"
+          className="group flex items-center gap-2 font-display text-lg font-semibold tracking-tight text-ink-100"
         >
-          Shadia<span className="text-gradient">.dev</span>
+          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-signal-cyan font-mono text-xs font-bold text-base-950 transition-transform group-hover:rotate-6">SN</span>
+          <span>Shadia<span className="text-gradient">.dev</span></span>
         </a>
 
         <nav
           className={cn(
             "hidden items-center gap-1 rounded-full px-2 py-2 lg:flex",
-            "glass"
+            "glass shadow-[0_10px_40px_rgba(0,0,0,.24)]"
           )}
         >
           {nav.map((item) => (
@@ -63,7 +74,7 @@ export default function Navbar() {
               key={item.href}
               href={item.href}
               className={cn(
-                "relative rounded-full px-3.5 py-1.5 text-sm transition-colors",
+                "relative rounded-full px-3.5 py-1.5 text-[13px] transition-colors",
                 active === item.href
                   ? "text-ink-100"
                   : "text-ink-500 hover:text-ink-100"
@@ -83,7 +94,7 @@ export default function Navbar() {
 
         <a
           href="#contact"
-          className="hidden rounded-full bg-gradient-to-r from-signal-blue to-signal-violet px-4 py-2 text-sm font-medium text-white shadow-glow transition-transform hover:scale-105 lg:inline-block"
+          className="hidden rounded-full border border-signal-cyan/30 bg-signal-cyan/10 px-4 py-2 text-sm font-medium text-signal-cyan transition-colors hover:bg-signal-cyan hover:text-base-950 lg:inline-block"
         >
           Let&apos;s talk
         </a>

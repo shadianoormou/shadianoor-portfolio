@@ -29,9 +29,11 @@ export default function Projects() {
           </a>
         </div>
 
-        <div className="mt-16 grid grid-cols-1 gap-6 lg:grid-cols-3">
+        <div className="mt-16 grid grid-cols-1 gap-6 lg:grid-cols-12">
           {projects.map((project, i) => (
-            <ProjectCard key={project.title} project={project} index={i} />
+            <div key={project.title} className={i === 0 || i === 3 ? "lg:col-span-7" : "lg:col-span-5"}>
+              <ProjectCard key={project.title} project={project} index={i} featured={i === 0} />
+            </div>
           ))}
         </div>
       </div>

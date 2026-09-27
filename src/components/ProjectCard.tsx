@@ -9,7 +9,7 @@ import { SiLeetcode } from "react-icons/si";
 import Badge from "./Badge";
 import type { Project } from "@/data/profile";
 
-export default function ProjectCard({ project, index }: { project: Project; index: number }) {
+export default function ProjectCard({ project, index, featured = false }: { project: Project; index: number; featured?: boolean }) {
   const [githubSnapshot, setGithubSnapshot] = useState<{
     description: string | null;
     updatedAt: string;
@@ -79,10 +79,10 @@ export default function ProjectCard({ project, index }: { project: Project; inde
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.55, delay: index * 0.08 }}
-      className="gradient-border glass glass-hover group relative flex h-full flex-col rounded-2xl p-7"
+      className={`gradient-border glass glass-hover project-card group relative flex h-full flex-col rounded-[1.75rem] p-7 ${featured ? "lg:min-h-[34rem]" : "lg:min-h-[28rem]"}`}
     >
       {project.image && (
-        <div className="relative -mx-7 -mt-7 mb-6 h-44 overflow-hidden rounded-t-2xl border-b border-white/10">
+        <div className={`relative -mx-7 -mt-7 mb-6 overflow-hidden rounded-t-[1.75rem] border-b border-white/10 ${featured ? "h-60" : "h-44"}`}>
           <Image
             src={project.image}
             alt={`${project.title} preview`}
@@ -90,7 +90,8 @@ export default function ProjectCard({ project, index }: { project: Project; inde
             sizes="(max-width: 1024px) 100vw, 360px"
             className="object-cover transition-transform duration-700 group-hover:scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-base-950/70 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-base-950/85 via-base-950/10 to-transparent" />
+          <span className="absolute left-4 top-4 rounded-full border border-white/15 bg-base-950/55 px-3 py-1 font-mono text-[9px] uppercase tracking-[0.2em] text-ink-300 backdrop-blur-md">Selected build / 0{index + 1}</span>
         </div>
       )}
 
@@ -105,7 +106,7 @@ export default function ProjectCard({ project, index }: { project: Project; inde
         </div>
       )}
 
-      <h3 className="max-w-[80%] font-display text-xl font-semibold text-ink-100">
+      <h3 className="max-w-[82%] font-display text-xl font-semibold tracking-[-0.025em] text-ink-100 sm:text-2xl">
         {project.title}
       </h3>
 
@@ -115,7 +116,7 @@ export default function ProjectCard({ project, index }: { project: Project; inde
         ))}
       </div>
 
-      <p className="mt-5 text-sm leading-relaxed text-ink-500">
+      <p className="mt-5 text-sm leading-relaxed text-ink-300/80">
         {description}
       </p>
 
@@ -135,7 +136,7 @@ export default function ProjectCard({ project, index }: { project: Project; inde
       )}
 
       {project.githubRepo && githubSnapshot && (
-        <p className="mt-4 text-xs text-ink-700">
+          <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.12em] text-ink-700">
           GitHub sync active · updated {new Date(githubSnapshot.updatedAt).toLocaleDateString("en-GB")}
         </p>
       )}
