@@ -33,6 +33,7 @@ export const personal = {
 export const socials = {
   github: "https://github.com/shadianoormou",
   linkedin: "https://www.linkedin.com/in/shadia-noor-mou",
+  linkedinProjects: "https://www.linkedin.com/in/shadia-noor-mou/details/projects/",
   leetcode: "https://leetcode.com/u/shadianoormou",
   email: `mailto:${personal.email}`,
 };
