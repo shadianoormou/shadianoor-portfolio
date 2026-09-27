@@ -18,7 +18,7 @@ export default function About() {
         <SectionHeading
           eyebrow="About"
           title="A builder who likes to understand the why"
-          description="Currently finishing my CSE degree while working across the full stack and into applied AI/ML."
+          description="CSE graduate building across the full stack and into applied AI/ML, while growing through hands-on professional work."
         />
 
         <div className="mt-16 grid grid-cols-1 gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">

@@ -6,13 +6,14 @@ const siteUrl = `https://${personal.domain}`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Shadia Noor Mou | Full-Stack Web Developer & AI/ML Enthusiast",
+  title: "Shadia Noor Mou | Software Engineer, AI/ML & Full-Stack Developer",
   description:
-    "Professional portfolio of Shadia Noor Mou, a CSE graduate, full-stack developer, AI/ML enthusiast, and competitive programmer from Rajshahi, Bangladesh.",
+    "Portfolio of Shadia Noor Mou — a software engineer, AI/ML and full-stack developer, research enthusiast, competitive programmer, IOY Ambassador, and community volunteer from Rajshahi, Bangladesh.",
   keywords: [
     "Shadia Noor Mou",
+    "Software Engineer",
     "Full-Stack Developer",
-    "AI Enthusiast",
+    "AI/ML Engineer",
     "Machine Learning",
     "Competitive Programmer",
     "Rajshahi",
@@ -26,9 +27,9 @@ export const metadata: Metadata = {
     icon: "/favicon.svg",
   },
   openGraph: {
-    title: "Shadia Noor Mou | Full-Stack Web Developer & AI/ML Enthusiast",
+    title: "Shadia Noor Mou | Software Engineer, AI/ML & Full-Stack Developer",
     description:
-      "Professional portfolio of Shadia Noor Mou, a CSE graduate, full-stack developer, AI/ML enthusiast, and competitive programmer from Rajshahi, Bangladesh.",
+      "Portfolio of Shadia Noor Mou — software engineer, AI/ML and full-stack developer, research enthusiast, competitive programmer, IOY Ambassador, and community volunteer.",
     url: siteUrl,
     siteName: "Shadia Noor Mou",
     images: [
@@ -44,9 +45,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Shadia Noor Mou | Full-Stack Web Developer & AI/ML Enthusiast",
+    title: "Shadia Noor Mou | Software Engineer, AI/ML & Full-Stack Developer",
     description:
-      "Professional portfolio of Shadia Noor Mou, a CSE graduate, full-stack developer, AI/ML enthusiast, and competitive programmer from Rajshahi, Bangladesh.",
+      "Portfolio of Shadia Noor Mou — software engineer, AI/ML and full-stack developer, research enthusiast, competitive programmer, IOY Ambassador, and community volunteer.",
     images: ["/assets/profile.jpg"],
   },
   robots: {

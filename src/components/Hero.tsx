@@ -135,8 +135,8 @@ export default function Hero() {
             transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
             className="glass absolute -bottom-6 -right-6 hidden rounded-2xl px-4 py-3 shadow-glow-violet sm:block"
           >
-            <p className="font-mono text-[11px] text-ink-500">leetcode</p>
-            <p className="font-display text-lg font-semibold text-ink-100">10 solved</p>
+            <p className="font-mono text-[11px] text-ink-500">global youth</p>
+            <p className="font-display text-lg font-semibold text-ink-100">IOY 2026–27</p>
           </motion.div>
         </motion.div>
       </div>

@@ -8,10 +8,11 @@
 export const personal = {
   name: "Mst. Shadia Noor Mou",
   firstName: "Shadia",
-  role: "Full-Stack Web Developer",
+  role: "Software Engineer · AI/ML & Full-Stack Developer",
   roles: [
-    "Full-Stack Web Developer",
-    "AI & ML Enthusiast",
+    "Software Engineer",
+    "AI/ML & Full-Stack Developer",
+    "Research Enthusiast",
     "Competitive Programmer",
   ],
   location: "Rajshahi, Bangladesh",
@@ -19,11 +20,11 @@ export const personal = {
   phone: "01760521131",
   domain: "shadianoormou.dev",
   intro:
-    "I build practical full-stack web applications and AI-powered solutions with a focus on clean UI, structured backend systems, research-based problem solving, and continuous learning.",
+    "I’m a software engineer building practical full-stack products and AI-powered solutions, with a growing focus on machine learning engineering, research, and meaningful community impact.",
   aboutParagraphs: [
-    "I'm a Computer Science & Engineering graduate from Varendra University, currently awaiting my final result. My interests sit at the intersection of full-stack web development, AI/ML, and competitive programming — I like building things that work end to end, and understanding the systems underneath them.",
-    "Day to day, I work with React.js, Next.js, Node.js, Python, and SQL, and I'm comfortable moving between frontend interfaces, backend APIs, and applied AI/ML pipelines. I care about clean code, structured data, and building software that solves a real problem rather than just demoing one.",
-    "I'm currently open to full-time roles, internships, freelance projects, and research collaboration — particularly anything involving full-stack engineering or applied machine learning.",
+    "I'm a Computer Science & Engineering graduate from Varendra University whose work sits at the intersection of full-stack development, AI/ML, research, and competitive programming. I enjoy understanding a problem deeply, then turning that understanding into software that works end to end.",
+    "My recent professional journey includes software engineering and internship experiences across machine learning, web development, and app development. I work comfortably with React.js, Next.js, Node.js, Python, SQL, and applied ML pipelines, while continuing to grow through hands-on projects and mentorship.",
+    "Beyond code, I’m an IOY Ambassador for 2026–2027, a Delegate for International Youth Conference 14, and a Community Volunteer with the Bangladesh Red Crescent Society’s Rajshahi City Unit. I care about using technical skills alongside leadership, collaboration, and service.",
   ],
   resumeUrl: "/assets/Shadia_Noor_Mou_CV.pdf",
   profileImage: "/assets/profile.jpg",
@@ -39,13 +40,11 @@ export const socials = {
 export const nav = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
-  { label: "Education", href: "#education" },
   { label: "Skills", href: "#skills" },
+  { label: "Journey", href: "#journey" },
   { label: "Projects", href: "#projects" },
-  { label: "Achievements", href: "#achievements" },
+  { label: "Impact", href: "#achievements" },
   { label: "Certifications", href: "#certifications" },
-  { label: "Research", href: "#research" },
-  { label: "Services", href: "#services" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -158,6 +157,8 @@ export const skillGroups: SkillGroup[] = [
 export type Project = {
   title: string;
   github: string;
+  liveUrl?: string;
+  image?: string;
   leetcode?: string;
   liveNote?: string;
   tech: string[];
@@ -167,6 +168,34 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+  {
+    title: "Aura_Studio — UGC Creator Portfolio & CMS",
+    github: "https://github.com/shadianoormou/Aura_Studio",
+    liveUrl: "https://aura-studio-xi-black.vercel.app/",
+    image: "/assets/linkedin/aura-studio.jpg",
+    tech: ["Next.js", "React", "TypeScript", "Vercel Postgres", "Vercel Blob", "Responsive CSS"],
+    description:
+      "A premium portfolio platform for a Bangladesh-based UGC creator, combining a responsive public portfolio with a private PIN-protected creator CMS.",
+    features: [
+      "Responsive portfolio and animated work gallery for beauty, skincare, fashion, wellness, and lifestyle content",
+      "Client feedback carousel and contact inquiry flow",
+      "CMS for portfolio items, media uploads, publishing status, and inquiries",
+    ],
+    stat: { value: "Live", label: "Deployed on Vercel" },
+  },
+  {
+    title: "Aurevia Care — Digital Pharmacy & Care Navigator",
+    github: "https://github.com/shadianoormou/Aurevia_Care",
+    image: "/assets/linkedin/aurevia-care.jpg",
+    tech: ["React", "Express", "Microsoft SQL Server", "Azure SQL", "Voice Search", "Healthcare UX"],
+    description:
+      "A safety-first digital pharmacy and Rajshahi care-discovery platform designed around pharmacist-led fulfilment and verified local care listings.",
+    features: [
+      "Medicine browsing with secure prescription upload and pharmacist review",
+      "Inventory and order controls for structured pharmacy operations",
+      "Voice search and verified local care discovery for Bangladesh",
+    ],
+  },
   {
     title: "Image-Based Malware Classification using Hybrid CNN-BiLSTM",
     github: "https://github.com/shadianoormou/Malware_Image_Classification_CNN-BiLSTM",
@@ -209,7 +238,98 @@ export const projects: Project[] = [
   },
 ];
 
-export const achievements = [
+export type Experience = {
+  role: string;
+  organization: string;
+  period: string;
+  type: string;
+  description: string;
+  highlights: string[];
+  image?: string;
+  link?: string;
+};
+
+export const experiences: Experience[] = [
+  {
+    role: "Software Engineer",
+    organization: "Professional journey",
+    period: "2026 — Present",
+    type: "Software engineering",
+    description:
+      "Started my professional journey as a Software Engineer, building a foundation for thoughtful product development, continuous learning, and meaningful impact.",
+    highlights: ["Full-stack product thinking", "Practical software engineering", "Continuous professional growth"],
+    image: "/assets/linkedin/software-engineer.jpg",
+    link: socials.linkedin,
+  },
+  {
+    role: "Machine Learning Engineering Intern",
+    organization: "FlyRank AI",
+    period: "July 2026",
+    type: "Internship · AI / ML",
+    description:
+      "Selected for the FlyRank AI Internship Program to learn from a fast-moving team and contribute to impactful AI solutions for modern search and organic growth.",
+    highlights: ["Machine learning engineering", "AI search and organic growth", "Hands-on team learning"],
+    image: "/assets/linkedin/flyrank-internship.jpg",
+    link: socials.linkedin,
+  },
+  {
+    role: "Web Development Intern",
+    organization: "Zidio Development",
+    period: "2026 · 3 months",
+    type: "Remote internship",
+    description:
+      "A project-based remote internship focused on strengthening modern web development skills through practical work, collaboration, and guided learning.",
+    highlights: ["Project-based web development", "Modern web practices", "Remote collaboration"],
+    image: "/assets/linkedin/zidio-internship.jpg",
+    link: socials.linkedin,
+  },
+  {
+    role: "App Development Intern",
+    organization: "CodeAlpha",
+    period: "2026",
+    type: "Internship · App development",
+    description:
+      "Selected for an app development internship to gain hands-on experience, learn through delivery, and grow into broader software engineering responsibilities.",
+    highlights: ["Application development", "Hands-on learning", "Career growth"],
+    image: "/assets/linkedin/codealpha-internship.jpg",
+    link: socials.linkedin,
+  },
+  {
+    role: "Web Development Intern",
+    organization: "SoftGrowTech",
+    period: "2026 · 1 month · Remote",
+    type: "Internship",
+    description:
+      "A one-month remote, project-based program with mentor guidance and a focus on learning, building, and evolving as a web developer.",
+    highlights: ["Project-based tasks", "Mentor guidance", "Practical web development"],
+    image: "/assets/linkedin/softgrow-internship.jpg",
+    link: socials.linkedin,
+  },
+];
+
+export type Achievement = {
+  title: string;
+  org: string;
+  place: string | null;
+  image?: string;
+  link?: string;
+};
+
+export const achievements: Achievement[] = [
+  {
+    title: "IOY Ambassador 2026–2027",
+    org: "International Organization of Youth",
+    place: "Delegate · IYC14, New York City · Sep 22–25, 2026",
+    image: "/assets/linkedin/ioy-delegate.jpg",
+    link: socials.linkedin,
+  },
+  {
+    title: "Community Volunteer",
+    org: "Bangladesh Red Crescent Society (BDRCS)",
+    place: "Rajshahi City RC Unit",
+    image: "/assets/linkedin/bdrcs-volunteer.jpg",
+    link: socials.linkedin,
+  },
   {
     title: "1st Runner-Up",
     org: "NASA Space Apps Challenge Bangladesh 2023",
@@ -345,8 +465,8 @@ export const services = [
     icon: "flask",
   },
   {
-    title: "Internship / Junior Developer Roles",
-    description: "Looking to join a team as an intern or junior developer to learn and contribute.",
+    title: "Software Engineering Roles",
+    description: "Open to thoughtful software engineering work across full-stack development, AI/ML, and product teams.",
     icon: "briefcase",
   },
   {
