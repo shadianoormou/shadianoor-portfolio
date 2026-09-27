@@ -12,6 +12,8 @@
   --acid: #c9ff5a;
   --aqua: #69e6ff;
   --coral: #ff8661;
+  --cursor-x: 50vw;
+  --cursor-y: 20vh;
 }
 
 * {
@@ -49,6 +51,16 @@ body::before {
   opacity: 0.035;
   content: "";
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+}
+
+.cursor-glow {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(28rem circle at var(--cursor-x) var(--cursor-y), rgba(201, 255, 90, 0.055), transparent 68%);
+  mix-blend-mode: screen;
+  transition: background 0.25s ease-out;
 }
 
 main > section:not(#home) {
@@ -153,6 +165,39 @@ main > section:nth-of-type(2n + 1):not(#home)::before {
   font-size: clamp(3.75rem, 10vw, 9.5rem);
   letter-spacing: -0.085em;
   line-height: 0.86;
+}
+
+.eyebrow-index {
+  color: var(--acid);
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.16em;
+}
+
+.display-quote {
+  font-size: clamp(2.7rem, 6vw, 6.3rem);
+  letter-spacing: -0.07em;
+  line-height: 0.92;
+}
+
+.project-card {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.project-card::after {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  content: "";
+  background: linear-gradient(115deg, rgba(201, 255, 90, 0.11), transparent 30%, transparent 65%, rgba(105, 230, 255, 0.08));
+  opacity: 0;
+  transition: opacity 0.45s ease;
+}
+
+.project-card:hover::after {
+  opacity: 1;
 }
 
 .hero-portrait-stage {

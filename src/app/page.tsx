@@ -11,10 +11,12 @@ import Research from "@/components/Research";
 import Services from "@/components/Services";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import CursorGlow from "@/components/CursorGlow";
 
 export default function Home() {
   return (
     <main className="relative">
+      <CursorGlow />
       <Navbar />
       <Hero />
       <About />

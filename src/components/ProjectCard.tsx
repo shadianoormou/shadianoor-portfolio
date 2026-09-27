@@ -15,6 +15,7 @@ export default function ProjectCard({ project, index, featured = false }: { proj
     updatedAt: string;
     fileCount: number | null;
   } | null>(null);
+  const [tilt, setTilt] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     if (!project.githubRepo) return;
@@ -79,6 +80,14 @@ export default function ProjectCard({ project, index, featured = false }: { proj
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.55, delay: index * 0.08 }}
+      style={{ rotateX: tilt.y, rotateY: tilt.x }}
+      onPointerMove={(event) => {
+        const bounds = event.currentTarget.getBoundingClientRect();
+        const x = ((event.clientX - bounds.left) / bounds.width - 0.5) * 7;
+        const y = ((event.clientY - bounds.top) / bounds.height - 0.5) * -7;
+        setTilt({ x, y });
+      }}
+      onPointerLeave={() => setTilt({ x: 0, y: 0 })}
       className={`gradient-border glass glass-hover project-card group relative flex h-full flex-col rounded-[1.75rem] p-7 ${featured ? "lg:min-h-[34rem]" : "lg:min-h-[28rem]"}`}
     >
       {project.image && (
