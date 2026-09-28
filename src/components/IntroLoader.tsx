@@ -10,13 +10,22 @@ export default function IntroLoader() {
   const reduceMotion = useReducedMotion();
 
   useEffect(() => {
+    const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
-    const timer = window.setTimeout(() => setVisible(false), reduceMotion ? 900 : 2700);
+    const timer = window.setTimeout(() => {
+      document.body.style.overflow = previousOverflow;
+      setVisible(false);
+    }, reduceMotion ? 900 : 2700);
     return () => {
       window.clearTimeout(timer);
-      document.body.style.overflow = "";
+      document.body.style.overflow = previousOverflow;
     };
   }, [reduceMotion]);
+
+  function dismiss() {
+    document.body.style.overflow = "";
+    setVisible(false);
+  }
 
   return (
     <AnimatePresence>
@@ -26,6 +35,7 @@ export default function IntroLoader() {
           initial={{ opacity: 1 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0, transition: { duration: 0.65, ease: [0.76, 0, 0.24, 1] } }}
+          onClick={dismiss}
           aria-label="Opening Shadia Noor Mou portfolio"
         >
           <motion.div className="intro-shell" initial={false}>
