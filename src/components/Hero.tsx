@@ -96,7 +96,6 @@ export default function Hero() {
                 </div>
               ))}
             </div>
-            <div className="absolute -bottom-4 -right-3 hidden bg-base-950 px-3 py-2 font-mono text-[9px] uppercase tracking-[0.18em] text-signal-blue ring-1 ring-signal-blue/30 sm:block">Open to collaboration</div>
           </motion.aside>
         </div>
 
