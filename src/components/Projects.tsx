@@ -16,7 +16,7 @@ export default function Projects() {
             <h2 className="display-quote max-w-4xl font-display font-semibold text-ink-100">Systems I&apos;ve <span className="text-gradient">shipped.</span></h2>
           </div>
           <div>
-            <p className="text-sm leading-relaxed text-ink-500">A short list of products, research systems, and developer practice—chosen to show how I think, build, and finish.</p>
+            <p className="text-sm leading-relaxed text-ink-500">A short list of products, research systems, and developer practice—chosen to show how I think, build, and finish. Select any row to open the full case study.</p>
             <a href={socials.linkedinProjects} target="_blank" rel="noreferrer" className="group mt-5 inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] text-signal-cyan">
               <FaLinkedin /> LinkedIn project records <FiArrowUpRight className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
             </a>
