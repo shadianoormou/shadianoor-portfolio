@@ -40,11 +40,11 @@ export const socials = {
 
 export const nav = [
   { label: "Home", href: "#home" },
-  { label: "Work", href: "#projects" },
   { label: "About", href: "#about" },
   { label: "Skills", href: "#skills" },
   { label: "Journey", href: "#journey" },
-  { label: "Impact", href: "#achievements" },
+  { label: "Work", href: "#projects" },
+  { label: "Volunteering / Leadership / Impact", href: "#impact" },
   { label: "Contact", href: "#contact" },
 ];
 

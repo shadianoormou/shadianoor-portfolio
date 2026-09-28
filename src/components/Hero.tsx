@@ -82,9 +82,9 @@ export default function Hero() {
                 <div className="absolute inset-0 bg-gradient-to-t from-base-950/80 via-transparent to-signal-cyan/10" />
                 <div className="absolute bottom-2 left-2 right-2 flex items-center justify-between gap-2 font-mono text-[9px] uppercase tracking-[0.14em] text-ink-300"><span>SHADIA / DEV</span><span className="h-1.5 w-1.5 rounded-full bg-signal-cyan" /></div>
               </div>
-              <div>
+              <div className="min-w-0">
                 <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-signal-cyan">Current focus</p>
-                <h2 className="mt-3 font-display text-2xl font-semibold leading-tight tracking-[-0.04em] text-ink-100 sm:text-3xl">From useful idea to dependable software.</h2>
+                <h2 className="mt-3 break-words font-display text-2xl font-semibold leading-tight tracking-[-0.04em] text-ink-100 sm:text-3xl">From useful idea to dependable software.</h2>
                 <p className="mt-4 text-sm leading-relaxed text-ink-500">End-to-end ownership, clean interfaces, and enough curiosity to ask better technical questions.</p>
               </div>
             </div>

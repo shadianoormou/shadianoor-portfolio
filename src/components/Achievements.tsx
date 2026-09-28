@@ -7,10 +7,10 @@ import { achievements } from "@/data/profile";
 
 export default function Achievements() {
   return (
-    <section id="achievements" className="relative overflow-hidden py-28 lg:py-36">
+    <section id="impact" className="relative overflow-hidden py-28 lg:py-36">
       <div className="mx-auto max-w-[90rem] px-6 sm:px-10 xl:px-16">
         <div className="mb-14 grid grid-cols-1 gap-8 border-b border-white/10 pb-7 lg:grid-cols-[1fr_24rem] lg:items-end lg:gap-16">
-          <div><p className="section-eyebrow mb-5"><span className="eyebrow-index mr-3">06 /</span> Impact &amp; recognition</p><h2 className="display-quote max-w-4xl font-display font-semibold text-ink-100">Proof beyond <span className="text-gradient">the code.</span></h2></div>
+          <div><p className="section-eyebrow mb-5"><span className="eyebrow-index mr-3">06 /</span> Volunteering / leadership / impact</p><h2 className="display-quote max-w-4xl font-display font-semibold text-ink-100">Proof beyond <span className="text-gradient">the code.</span></h2></div>
           <p className="text-sm leading-relaxed text-ink-500">Engineering is only one part of the work. These records reflect problem solving, leadership, community, and the habit of showing up.</p>
         </div>
 
