@@ -2,90 +2,42 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { FiArrowUpRight, FiBriefcase, FiCalendar } from "react-icons/fi";
-import SectionHeading from "./SectionHeading";
-import Badge from "./Badge";
+import { FiArrowUpRight, FiCalendar } from "react-icons/fi";
 import { experiences } from "@/data/profile";
 
 export default function Journey() {
   return (
-    <section id="journey" className="relative py-28">
-      <div className="mx-auto max-w-6xl px-6">
-        <SectionHeading
-          eyebrow="Professional Journey"
-          title="Learning by building"
-          description="A growing path through software engineering, machine learning, web development, and app development."
-        />
+    <section id="journey" className="relative overflow-hidden py-32 lg:py-40">
+      <div className="mx-auto max-w-[90rem] px-6 sm:px-10 xl:px-16">
+        <div className="mb-16 flex items-center justify-between border-b border-white/10 pb-5">
+          <p className="section-eyebrow"><span className="eyebrow-index mr-3">04 /</span> Professional journey</p>
+          <span className="hidden font-mono text-[10px] uppercase tracking-[0.22em] text-ink-700 sm:block">Learning by building</span>
+        </div>
 
-        <div className="relative mt-16">
-          <div className="absolute bottom-8 left-5 top-8 hidden w-px bg-gradient-to-b from-signal-cyan/60 via-signal-violet/50 to-transparent sm:block" />
+        <div className="grid grid-cols-1 gap-14 lg:grid-cols-[0.6fr_1.4fr] lg:gap-24">
+          <div className="lg:sticky lg:top-32 lg:self-start">
+            <p className="section-eyebrow mb-5">A growing path</p>
+            <h2 className="display-quote max-w-lg font-display font-semibold text-ink-100">Momentum over <span className="text-gradient">labels.</span></h2>
+            <p className="mt-7 max-w-sm text-base leading-relaxed text-ink-500">Each role adds a new lens: product thinking, machine learning, research, collaboration, and the discipline to keep shipping.</p>
+          </div>
 
-          <div className="space-y-6">
+          <div className="space-y-5">
             {experiences.map((experience, i) => (
-              <motion.article
-                key={`${experience.role}-${experience.organization}`}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.55, delay: i * 0.06 }}
-                className="relative grid grid-cols-1 gap-5 sm:grid-cols-[2.5rem_1fr]"
-              >
-                <div className="relative z-10 mt-7 hidden h-3.5 w-3.5 rounded-full border-2 border-base-950 bg-signal-cyan shadow-[0_0_0_4px_rgba(63,208,255,0.16)] sm:block" />
-
-                <div className="gradient-border glass glass-hover overflow-hidden rounded-2xl">
-                  <div className="grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_15rem]">
-                    <div className="p-6 sm:p-7">
-                      <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-xs text-ink-500">
-                        <span className="inline-flex items-center gap-1.5 font-mono text-signal-cyan">
-                          <FiCalendar size={13} /> {experience.period}
-                        </span>
-                        <span className="hidden h-1 w-1 rounded-full bg-ink-700 sm:block" />
-                        <span className="inline-flex items-center gap-1.5">
-                          <FiBriefcase size={13} /> {experience.type}
-                        </span>
-                      </div>
-
-                      <h3 className="mt-4 font-display text-xl font-semibold text-ink-100">
-                        {experience.role}
-                      </h3>
-                      <p className="mt-1 text-sm font-medium text-signal-cyan">
-                        {experience.organization}
-                      </p>
-                      <p className="mt-4 max-w-2xl text-sm leading-relaxed text-ink-500">
-                        {experience.description}
-                      </p>
-
-                      <div className="mt-5 flex flex-wrap gap-2">
-                        {experience.highlights.map((highlight) => (
-                          <Badge key={highlight}>{highlight}</Badge>
-                        ))}
-                      </div>
-
-                      {experience.link && (
-                        <a
-                          href={experience.link}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-ink-300 transition-colors hover:text-ink-100"
-                        >
-                          View LinkedIn updates <FiArrowUpRight size={15} />
-                        </a>
-                      )}
+              <motion.article key={`${experience.role}-${experience.organization}`} initial={{ opacity: 0, y: 25 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-70px" }} transition={{ duration: 0.65, delay: i * 0.1 }} className="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/[0.035] p-6 transition-colors hover:border-signal-blue/45 sm:p-8">
+                <div className="absolute right-6 top-6 font-mono text-xs text-ink-700">0{i + 1}</div>
+                <div className="grid grid-cols-1 gap-8 md:grid-cols-[8rem_1fr_13rem] md:items-start">
+                  <div className="font-mono text-xs uppercase tracking-[0.14em] text-signal-blue"><FiCalendar className="mb-2" size={16} />{experience.period}</div>
+                  <div>
+                    <p className="font-mono text-xs uppercase tracking-[0.16em] text-ink-700">{experience.type}</p>
+                    <h3 className="mt-3 font-display text-2xl font-semibold tracking-[-0.03em] text-ink-100">{experience.role}</h3>
+                    <p className="mt-1 text-sm font-medium text-signal-blue">{experience.organization}</p>
+                    <p className="mt-5 max-w-xl text-sm leading-relaxed text-ink-500">{experience.description}</p>
+                    <div className="mt-5 flex flex-wrap gap-x-4 gap-y-2">
+                      {experience.highlights.map((highlight) => <span key={highlight} className="font-mono text-[11px] text-ink-300">/ {highlight}</span>)}
                     </div>
-
-                    {experience.image && (
-                      <div className="relative min-h-48 overflow-hidden border-t border-white/10 md:min-h-full md:border-l md:border-t-0">
-                        <Image
-                          src={experience.image}
-                          alt={`${experience.role} at ${experience.organization}`}
-                          fill
-                          sizes="(max-width: 768px) 100vw, 240px"
-                          className="object-cover object-center transition-transform duration-700 hover:scale-105"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-base-950/80 via-transparent to-transparent md:bg-gradient-to-r md:from-base-950/40 md:via-transparent md:to-transparent" />
-                      </div>
-                    )}
+                    {experience.link && <a href={experience.link} target="_blank" rel="noreferrer" className="group/link mt-6 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.12em] text-signal-blue">View LinkedIn updates <FiArrowUpRight className="transition-transform group-hover/link:translate-x-1 group-hover/link:-translate-y-1" /></a>}
                   </div>
+                  {experience.image && <div className="relative min-h-52 overflow-hidden rounded-xl border border-white/10 md:min-h-64"><Image src={experience.image} alt={`${experience.role} at ${experience.organization}`} fill sizes="(max-width: 768px) 100vw, 220px" className="object-cover transition-transform duration-700 group-hover:scale-105" /><div className="absolute inset-0 bg-gradient-to-t from-base-950/80 via-transparent to-transparent" /></div>}
                 </div>
               </motion.article>
             ))}
