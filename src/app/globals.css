@@ -63,6 +63,225 @@ body::before {
   transition: background 0.25s ease-out;
 }
 
+.intro-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: #05070d;
+}
+
+.intro-shell {
+  display: grid;
+  height: 100%;
+  grid-template-columns: 1fr 1fr;
+}
+
+.intro-panel {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.intro-panel::before {
+  position: absolute;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+  background-image: linear-gradient(rgba(101, 166, 255, .06) 1px, transparent 1px), linear-gradient(90deg, rgba(126, 91, 255, .06) 1px, transparent 1px);
+  background-size: 5rem 5rem;
+  mask-image: linear-gradient(to bottom, black, transparent 88%);
+}
+
+.intro-card-panel {
+  border-right: 1px solid rgba(101, 166, 255, .25);
+  background: radial-gradient(circle at 50% 42%, rgba(101, 166, 255, .11), transparent 23rem), #080b13;
+}
+
+.intro-welcome-panel {
+  background: radial-gradient(circle at 55% 45%, rgba(126, 91, 255, .12), transparent 25rem), #080b13;
+}
+
+.intro-card-panel::after,
+.intro-welcome-panel::after {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  content: "";
+  background: linear-gradient(to bottom, transparent, rgba(101, 166, 255, .65), transparent);
+}
+
+.intro-card-panel::after { right: 0; }
+.intro-welcome-panel::after { left: 0; }
+
+.intro-profile-card {
+  position: relative;
+  width: min(72%, 34rem);
+  padding: 4rem 3rem 3.5rem;
+  text-align: center;
+  border: 1px solid rgba(126, 91, 255, .34);
+  border-radius: 1.8rem;
+  background: linear-gradient(145deg, rgba(255,255,255,.08), rgba(255,255,255,.02) 55%, rgba(126,91,255,.10));
+  box-shadow: 0 32px 100px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.08);
+}
+
+.intro-profile-card::before {
+  position: absolute;
+  inset: 1.2rem;
+  border: 1px solid rgba(101,166,255,.25);
+  border-radius: 1.1rem;
+  content: "";
+  pointer-events: none;
+}
+
+.intro-card-mark {
+  position: absolute;
+  right: 2rem;
+  top: 1.5rem;
+  color: rgba(126,91,255,.55);
+  font-family: var(--font-mono);
+  font-size: .7rem;
+  letter-spacing: .18em;
+}
+
+.intro-profile-photo {
+  position: relative;
+  z-index: 1;
+  width: clamp(6rem, 10vw, 9rem);
+  aspect-ratio: 1;
+  margin: 0 auto 2rem;
+  overflow: hidden;
+  border: 4px solid rgba(127,229,255,.55);
+  border-radius: 999px;
+  box-shadow: 0 0 0 .5rem rgba(101,166,255,.08), 0 20px 50px rgba(0,0,0,.35);
+}
+
+.intro-card-title {
+  position: relative;
+  margin: 0;
+  color: #edf0ff;
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 5.5rem);
+  font-weight: 700;
+  letter-spacing: -.08em;
+  line-height: .9;
+  text-transform: uppercase;
+}
+
+.intro-card-role,
+.intro-card-name,
+.intro-card-index,
+.intro-welcome-kicker,
+.intro-enter-line {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+}
+
+.intro-card-role {
+  position: relative;
+  margin-top: 1.2rem;
+  color: rgba(127,229,255,.8);
+  font-size: .63rem;
+  letter-spacing: .16em;
+}
+
+.intro-card-name {
+  position: relative;
+  margin-top: 1.5rem;
+  color: #d8dcff;
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 1.7vw, 1.35rem);
+  font-weight: 600;
+}
+
+.intro-card-line {
+  display: block;
+  width: 4rem;
+  height: 1px;
+  margin: 1.6rem auto 0;
+  background: linear-gradient(90deg, transparent, var(--aqua), transparent);
+}
+
+.intro-card-index {
+  position: absolute;
+  bottom: 1.6rem;
+  left: 2rem;
+  color: rgba(127,229,255,.65);
+  font-size: .58rem;
+  letter-spacing: .18em;
+}
+
+.intro-welcome-copy {
+  position: relative;
+  z-index: 1;
+  width: min(78%, 42rem);
+}
+
+.intro-welcome-kicker {
+  color: rgba(127,229,255,.72);
+  font-size: .7rem;
+  letter-spacing: .24em;
+}
+
+.intro-welcome-copy h1 {
+  margin-top: 2rem;
+  color: #f1f3ff;
+  font-family: var(--font-display);
+  font-size: clamp(3.2rem, 7vw, 8.2rem);
+  font-weight: 700;
+  letter-spacing: -.09em;
+  line-height: .88;
+  text-transform: uppercase;
+}
+
+.intro-welcome-copy h1 span {
+  background: linear-gradient(100deg, var(--aqua), var(--acid) 45%, var(--coral));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.intro-enter-line {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  margin-top: 3rem;
+  color: rgba(216,220,255,.55);
+  font-size: .62rem;
+  letter-spacing: .18em;
+}
+
+.intro-enter-line span {
+  width: 3rem;
+  height: 1px;
+  background: var(--aqua);
+}
+
+.intro-loader-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  transform-origin: left;
+  background: linear-gradient(90deg, var(--aqua), var(--acid), var(--coral));
+}
+
+@media (max-width: 720px) {
+  .intro-shell { grid-template-columns: 1fr; grid-template-rows: 1.08fr .92fr; }
+  .intro-card-panel { border-right: 0; border-bottom: 1px solid rgba(101,166,255,.25); }
+  .intro-card-panel::after, .intro-welcome-panel::after { display: none; }
+  .intro-profile-card { width: min(84%, 26rem); padding: 2.4rem 1.6rem 2.6rem; }
+  .intro-profile-photo { margin-bottom: 1.2rem; }
+  .intro-card-role { max-width: 18rem; margin-inline: auto; line-height: 1.5; }
+  .intro-welcome-copy { width: min(84%, 26rem); }
+  .intro-welcome-copy h1 { margin-top: 1rem; font-size: clamp(2.6rem, 13vw, 4.8rem); }
+  .intro-enter-line { margin-top: 1.4rem; font-size: .52rem; }
+}
+
 main > section:not(#home) {
   position: relative;
   border-top: 1px solid rgba(255, 255, 255, 0.06);

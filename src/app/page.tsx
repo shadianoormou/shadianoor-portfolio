@@ -12,10 +12,12 @@ import Services from "@/components/Services";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import CursorGlow from "@/components/CursorGlow";
+import IntroLoader from "@/components/IntroLoader";
 
 export default function Home() {
   return (
     <main className="relative">
+      <IntroLoader />
       <CursorGlow />
       <Navbar />
       <Hero />
