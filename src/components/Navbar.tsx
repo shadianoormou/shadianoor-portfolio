@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { nav } from "@/data/profile";
 import { cn } from "@/lib/utils";
 
@@ -59,7 +60,9 @@ export default function Navbar() {
           href="#home"
           className="group flex items-center gap-2 font-display text-lg font-semibold tracking-tight text-ink-100"
         >
-          <span className="flex h-8 w-8 items-center justify-center rounded-sm bg-signal-cyan font-mono text-xs font-bold text-base-950 transition-transform group-hover:rotate-6">SN</span>
+          <span className="relative flex h-10 w-10 items-center justify-center overflow-hidden rounded-sm border border-signal-cyan/50 bg-base-950 transition-transform group-hover:rotate-6">
+            <Image src="/favicon.svg" alt="SN logo" fill sizes="40px" className="object-cover" />
+          </span>
           <span>Shadia<span className="text-gradient">.dev</span></span>
         </a>
 
