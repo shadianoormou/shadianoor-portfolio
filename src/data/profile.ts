@@ -239,6 +239,23 @@ export const projects: Project[] = [
   },
 ];
 
+export const gameProjects = [
+  {
+    title: "Mission Infinity VR",
+    subtitle: "Visualize a Space Mission Using Virtual Reality",
+    role: "System Architect",
+    team: "Rajshahi Team Error 404",
+    competition: "NASA Space Apps Challenge Bangladesh 2023",
+    recognition: "1st Runner-Up · Rajshahi",
+    image: "/assets/certificates/cert-nasa-1st-runner-up.jpg",
+    videoUrl: "https://www.youtube.com/watch?v=VAPqlEm0U7w",
+    tech: ["Virtual Reality", "3D Visualization", "Hardware + Software"],
+    description:
+      "An interactive space-mission experience that combines hardware and software to make planetary exploration tangible through a 3D virtual environment.",
+    features: ["3D solar-system and Mars visualisation", "Interactive menu with multiple viewing modes", "Team-built experience presented through a VR workflow"],
+  },
+];
+
 export type Experience = {
   role: string;
   organization: string;
