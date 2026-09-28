@@ -76,9 +76,9 @@ export default function Hero() {
               <span>Engineering snapshot</span>
               <span className="text-signal-cyan">SN / 001</span>
             </div>
-            <div className="grid grid-cols-[8rem_1fr] gap-5 p-5 sm:grid-cols-[12rem_1fr] sm:gap-7 sm:p-7">
-              <div className="hero-profile-frame relative aspect-[4/5] overflow-hidden border border-signal-blue/30 bg-base-900">
-                <Image src={personal.profileImage} alt={personal.name} fill priority sizes="240px" className="object-cover object-[center_16%]" />
+            <div className="grid grid-cols-[10rem_1fr] gap-5 p-5 sm:grid-cols-[16rem_1fr] sm:gap-8 sm:p-8">
+              <div className="hero-profile-frame relative aspect-[3/4] overflow-hidden border border-signal-blue/30 bg-base-900">
+                <Image src={personal.profileImage} alt={personal.name} fill priority sizes="320px" className="object-cover object-[center_14%]" />
                 <div className="absolute inset-0 bg-gradient-to-t from-base-950/80 via-transparent to-signal-cyan/10" />
                 <div className="absolute bottom-2 left-2 right-2 flex items-center justify-between gap-2 font-mono text-[9px] uppercase tracking-[0.14em] text-ink-300"><span>SHADIA / DEV</span><span className="h-1.5 w-1.5 rounded-full bg-signal-cyan" /></div>
               </div>
