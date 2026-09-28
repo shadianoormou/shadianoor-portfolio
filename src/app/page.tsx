@@ -20,11 +20,11 @@ export default function Home() {
       <Navbar />
       <Hero />
       <About />
+      <Education />
       <Skills />
       <Journey />
       <Projects />
       <Achievements />
-      <Education />
       <Certifications />
       <Research />
       <Services />

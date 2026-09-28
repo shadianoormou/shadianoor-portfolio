@@ -41,6 +41,7 @@ export const socials = {
 export const nav = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
+  { label: "Education", href: "#education" },
   { label: "Skills", href: "#skills" },
   { label: "Journey", href: "#journey" },
   { label: "Work", href: "#projects" },
