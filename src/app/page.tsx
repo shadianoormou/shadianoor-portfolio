@@ -19,11 +19,11 @@ export default function Home() {
       <CursorGlow />
       <Navbar />
       <Hero />
+      <Projects />
       <About />
-      <Education />
       <Skills />
       <Journey />
-      <Projects />
+      <Education />
       <Achievements />
       <Certifications />
       <Research />

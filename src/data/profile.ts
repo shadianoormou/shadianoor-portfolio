@@ -20,7 +20,7 @@ export const personal = {
   phone: "01760521131",
   domain: "shadianoormou.dev",
   intro:
-    "I’m a software engineer building practical full-stack products and AI-powered solutions, with a growing focus on machine learning engineering, research, and meaningful community impact.",
+    "I build reliable full-stack products and applied AI systems—from the first technical decision to the last shipped detail. My work sits where product thinking, software engineering, and research meet.",
   aboutParagraphs: [
     "I'm a Computer Science & Engineering graduate from Varendra University whose work sits at the intersection of full-stack development, AI/ML, research, and competitive programming. I enjoy understanding a problem deeply, then turning that understanding into software that works end to end.",
     "My recent professional journey includes software engineering and machine learning work. I work comfortably with React.js, Next.js, Node.js, Python, SQL, C#, .NET MAUI, ASP.NET, and applied ML pipelines, while continuing to grow through hands-on projects and mentorship.",
@@ -40,12 +40,11 @@ export const socials = {
 
 export const nav = [
   { label: "Home", href: "#home" },
+  { label: "Work", href: "#projects" },
   { label: "About", href: "#about" },
   { label: "Skills", href: "#skills" },
   { label: "Journey", href: "#journey" },
-  { label: "Projects", href: "#projects" },
   { label: "Impact", href: "#achievements" },
-  { label: "Certifications", href: "#certifications" },
   { label: "Contact", href: "#contact" },
 ];
 

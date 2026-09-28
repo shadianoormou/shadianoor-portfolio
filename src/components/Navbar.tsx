@@ -59,14 +59,14 @@ export default function Navbar() {
           href="#home"
           className="group flex items-center gap-2 font-display text-lg font-semibold tracking-tight text-ink-100"
         >
-          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-signal-cyan font-mono text-xs font-bold text-base-950 transition-transform group-hover:rotate-6">SN</span>
+          <span className="flex h-8 w-8 items-center justify-center rounded-sm bg-signal-cyan font-mono text-xs font-bold text-base-950 transition-transform group-hover:rotate-6">SN</span>
           <span>Shadia<span className="text-gradient">.dev</span></span>
         </a>
 
         <nav
           className={cn(
-            "hidden items-center gap-1 rounded-full px-2 py-2 lg:flex",
-            "glass shadow-[0_10px_40px_rgba(0,0,0,.24)]"
+            "hidden items-center gap-1 border border-white/10 bg-base-950/70 px-3 py-2 backdrop-blur-xl lg:flex",
+            "shadow-[0_10px_40px_rgba(0,0,0,.24)]"
           )}
         >
           {nav.map((item) => (
@@ -74,7 +74,7 @@ export default function Navbar() {
               key={item.href}
               href={item.href}
               className={cn(
-                "relative rounded-full px-3.5 py-1.5 text-[13px] transition-colors",
+                "relative px-3 py-1.5 text-[13px] transition-colors",
                 active === item.href
                   ? "text-ink-100"
                   : "text-ink-500 hover:text-ink-100"
@@ -83,7 +83,7 @@ export default function Navbar() {
               {active === item.href && (
                 <motion.span
                   layoutId="nav-active"
-                  className="absolute inset-0 rounded-full bg-white/10"
+                  className="absolute inset-x-0 bottom-0 h-px bg-signal-cyan"
                   transition={{ type: "spring", duration: 0.5 }}
                 />
               )}
@@ -94,7 +94,7 @@ export default function Navbar() {
 
         <a
           href="#contact"
-          className="hidden rounded-full border border-signal-cyan/30 bg-signal-cyan/10 px-4 py-2 text-sm font-medium text-signal-cyan transition-colors hover:bg-signal-cyan hover:text-base-950 lg:inline-block"
+          className="hidden rounded-sm border border-signal-cyan/30 bg-signal-cyan/10 px-4 py-2 text-sm font-medium text-signal-cyan transition-colors hover:bg-signal-cyan hover:text-base-950 lg:inline-block"
         >
           Let&apos;s talk
         </a>
@@ -102,7 +102,7 @@ export default function Navbar() {
         <button
           aria-label={open ? "Close menu" : "Open menu"}
           onClick={() => setOpen((v) => !v)}
-          className="glass flex h-10 w-10 items-center justify-center rounded-full lg:hidden"
+          className="glass flex h-10 w-10 items-center justify-center rounded-md lg:hidden"
         >
           <div className="flex flex-col gap-1.5">
             <span
@@ -131,7 +131,7 @@ export default function Navbar() {
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="glass mx-6 mt-3 rounded-2xl p-4 lg:hidden"
+          className="glass mx-6 mt-3 rounded-md p-4 lg:hidden"
         >
           <div className="flex flex-col gap-1">
             {nav.map((item) => (
@@ -140,7 +140,7 @@ export default function Navbar() {
                 href={item.href}
                 onClick={() => setOpen(false)}
                 className={cn(
-                  "rounded-xl px-3 py-2.5 text-sm",
+                  "px-3 py-2.5 text-sm",
                   active === item.href
                     ? "bg-white/10 text-ink-100"
                     : "text-ink-500"

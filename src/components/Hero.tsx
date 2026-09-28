@@ -1,9 +1,8 @@
 "use client";
 
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
-import { useEffect, useState } from "react";
-import { FiArrowDown, FiArrowUpRight, FiDownload, FiMove } from "react-icons/fi";
+import { FiArrowDown, FiArrowUpRight, FiDownload } from "react-icons/fi";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { SiLeetcode } from "react-icons/si";
 import NeuralBackground from "./NeuralBackground";
@@ -15,128 +14,95 @@ const socialLinks = [
   { href: socials.leetcode, icon: SiLeetcode, label: "LeetCode" },
 ];
 
+const focusAreas = [
+  ["01", "Full-stack product systems"],
+  ["02", "Applied AI / ML"],
+  ["03", "Research-minded engineering"],
+];
+
 export default function Hero() {
-  const [roleIndex, setRoleIndex] = useState(0);
-  const reduceMotion = useReducedMotion();
-
-  useEffect(() => {
-    if (reduceMotion) return;
-    const timer = window.setInterval(() => {
-      setRoleIndex((current) => (current + 1) % personal.roles.length);
-    }, 2600);
-    return () => window.clearInterval(timer);
-  }, [reduceMotion]);
-
   return (
-    <section id="home" className="relative flex min-h-screen items-center overflow-hidden pb-20 pt-32 lg:pt-36">
+    <section id="home" className="relative flex min-h-screen items-center overflow-hidden pb-24 pt-28 lg:pt-32">
       <div className="absolute inset-0 bg-aurora" />
       <div className="grid-overlay absolute inset-0" />
       <NeuralBackground />
+      <div className="absolute -right-40 top-20 h-[34rem] w-[34rem] rounded-full bg-signal-violet/10 blur-[150px]" />
+      <div className="absolute left-[-18rem] top-[38%] h-[28rem] w-[28rem] rounded-full bg-signal-blue/10 blur-[150px]" />
 
-      <div className="absolute -left-28 top-24 h-96 w-96 animate-float-slow rounded-full bg-signal-blue/10 blur-[130px]" />
-      <div className="absolute -right-20 top-1/3 h-[34rem] w-[34rem] animate-float-slower rounded-full bg-signal-cyan/10 blur-[150px]" />
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-signal-cyan/60 to-transparent" />
+      <div className="relative mx-auto w-full max-w-[90rem] px-6 sm:px-10 xl:px-16">
+        <div className="mb-10 flex items-center justify-between border-y border-white/10 py-3 font-mono text-[10px] uppercase tracking-[0.2em] text-ink-700">
+          <span><i className="mr-2 inline-block h-1.5 w-1.5 rounded-full bg-signal-cyan shadow-[0_0_12px_rgba(127,229,255,.8)]" /> Available for meaningful work</span>
+          <span className="hidden sm:block">{personal.location} / 2026</span>
+        </div>
 
-      <div className="relative mx-auto grid w-full max-w-[90rem] grid-cols-1 items-center gap-14 px-6 sm:px-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-10 xl:px-16">
-        <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}>
-          <p className="section-eyebrow mb-7 inline-flex items-center gap-3 rounded-full border border-signal-cyan/20 bg-signal-cyan/5 px-4 py-2">
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-signal-cyan opacity-70" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-signal-cyan" />
-            </span>
-            Available for meaningful work
-          </p>
+        <div className="grid grid-cols-1 items-end gap-14 lg:grid-cols-[1.15fr_0.85fr] lg:gap-20">
+          <motion.div initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}>
+            <p className="section-eyebrow mb-7"><span className="eyebrow-index mr-3">01 /</span> Software engineer</p>
+            <h1 className="hero-title max-w-5xl font-display font-semibold text-ink-100">
+              Building software that <span className="text-gradient">earns trust.</span>
+            </h1>
+            <p className="mt-8 max-w-2xl text-base leading-relaxed text-ink-300 sm:text-lg">{personal.intro}</p>
 
-          <p className="mb-5 font-mono text-xs uppercase tracking-[0.3em] text-ink-500">Software engineer · Rajshahi, Bangladesh</p>
-
-          <h1 className="hero-title max-w-5xl font-display font-semibold text-ink-100">
-            Designing <span className="text-gradient">digital</span>
-            <br />
-            systems with intent.
-          </h1>
-
-          <div className="mt-8 flex min-h-7 items-center gap-3 font-mono text-sm text-signal-cyan sm:text-base">
-            <span className="h-px w-8 bg-signal-cyan/60" />
-            <AnimatePresence mode="wait">
-              <motion.span key={personal.roles[roleIndex]} initial={{ opacity: 0, y: 10, filter: "blur(5px)" }} animate={{ opacity: 1, y: 0, filter: "blur(0px)" }} exit={{ opacity: 0, y: -10, filter: "blur(5px)" }} transition={{ duration: 0.35 }}>
-                {personal.roles[roleIndex]}
-              </motion.span>
-            </AnimatePresence>
-          </div>
-
-          <p className="mt-7 max-w-2xl text-balance text-base leading-relaxed text-ink-300 sm:text-lg">{personal.intro}</p>
-
-          <div className="mt-10 flex flex-wrap items-center gap-3">
-            <a href="#projects" className="group inline-flex items-center gap-2 rounded-full bg-signal-cyan px-6 py-3.5 text-sm font-semibold text-base-950 shadow-glow transition-transform hover:scale-[1.04]">
-              Explore selected work
-              <FiArrowUpRight className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </a>
-            <a href={personal.resumeUrl} download className="glass glass-hover inline-flex items-center gap-2 rounded-full px-6 py-3.5 text-sm font-medium text-ink-100">
-              <FiDownload /> Download CV
-            </a>
-            <a href="#contact" className="inline-flex items-center gap-2 rounded-full px-4 py-3.5 text-sm font-medium text-ink-300 transition-colors hover:text-signal-cyan">Contact me <FiArrowDown /></a>
-          </div>
-
-          <div className="mt-12 flex flex-wrap items-center gap-x-6 gap-y-4">
-            {socialLinks.map(({ href, icon: Icon, label }) => (
-              <a key={label} href={href} target="_blank" rel="noreferrer" aria-label={label} className="group inline-flex items-center gap-2 text-sm text-ink-500 transition-colors hover:text-signal-cyan">
-                <Icon size={18} />
-                <span>{label}</span>
+            <div className="mt-10 flex flex-wrap items-center gap-3">
+              <a href="#projects" className="group inline-flex items-center gap-2 rounded-md bg-signal-cyan px-6 py-3.5 text-sm font-semibold text-base-950 shadow-glow transition-transform hover:-translate-y-1">
+                See selected work <FiArrowUpRight className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </a>
-            ))}
-          </div>
+              <a href={personal.resumeUrl} download className="inline-flex items-center gap-2 rounded-md border border-white/15 bg-white/[0.04] px-6 py-3.5 text-sm font-medium text-ink-100 transition-colors hover:border-signal-cyan/50 hover:bg-white/[0.08]">
+                <FiDownload /> Download CV
+              </a>
+            </div>
 
-          <div className="mt-14 grid max-w-2xl grid-cols-3 gap-3 border-t border-white/10 pt-5">
-            {[["3.78", "B.Sc. CGPA"], ["96.13%", "Model accuracy"], ["2026", "Graduation year"]].map(([value, label]) => (
-              <div key={label}>
-                <p className="font-display text-xl font-semibold tracking-tight text-ink-100 sm:text-2xl">{value}</p>
-                <p className="mt-1 font-mono text-[9px] uppercase tracking-[0.16em] text-ink-700 sm:text-[10px]">{label}</p>
+            <div className="mt-12 flex flex-wrap items-center gap-x-6 gap-y-4 border-t border-white/10 pt-5">
+              {socialLinks.map(({ href, icon: Icon, label }) => (
+                <a key={label} href={href} target="_blank" rel="noreferrer" aria-label={label} className="group inline-flex items-center gap-2 text-sm text-ink-500 transition-colors hover:text-signal-cyan">
+                  <Icon size={17} /> <span>{label}</span>
+                </a>
+              ))}
+              <a href="#contact" className="group ml-auto inline-flex items-center gap-2 text-sm text-ink-300 transition-colors hover:text-signal-cyan">Start a conversation <FiArrowDown className="transition-transform group-hover:translate-y-1" /></a>
+            </div>
+
+            <div className="mt-10 grid max-w-2xl grid-cols-3 border-y border-white/10">
+              {[['3.78', 'B.Sc. CGPA'], ['96.13%', 'Model accuracy'], ['2026', 'Graduation year']].map(([value, label], index) => (
+                <div key={label} className={`py-5 ${index > 0 ? 'border-l border-white/10 pl-4 sm:pl-6' : ''}`}>
+                  <p className="font-display text-xl font-semibold tracking-tight text-ink-100 sm:text-2xl">{value}</p>
+                  <p className="mt-1 font-mono text-[9px] uppercase tracking-[0.16em] text-ink-700 sm:text-[10px]">{label}</p>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+          <motion.aside initial={{ opacity: 0, x: 24 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.9, delay: 0.15, ease: [0.16, 1, 0.3, 1] }} className="engineering-console relative">
+            <div className="flex items-center justify-between border-b border-white/10 px-5 py-4 font-mono text-[10px] uppercase tracking-[0.18em] text-ink-700">
+              <span>Engineering snapshot</span>
+              <span className="text-signal-cyan">SN / 001</span>
+            </div>
+            <div className="grid grid-cols-[7rem_1fr] gap-5 p-5 sm:grid-cols-[9rem_1fr] sm:p-7">
+              <div className="relative aspect-[4/5] overflow-hidden border border-signal-blue/30 bg-base-900">
+                <Image src={personal.profileImage} alt={personal.name} fill priority sizes="180px" className="object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-base-950/80 via-transparent to-signal-cyan/10" />
+                <span className="absolute bottom-2 left-2 font-mono text-[9px] uppercase tracking-[0.16em] text-ink-300">SHADIA / DEV</span>
               </div>
-            ))}
-          </div>
-        </motion.div>
-
-        <motion.div initial={{ opacity: 0, scale: 0.9, y: 20, rotate: 2 }} animate={{ opacity: 1, scale: 1, y: 0, rotate: 0 }} transition={{ duration: 1.05, ease: [0.16, 1, 0.3, 1], delay: 0.15 }} className="hero-portrait-stage relative mx-auto w-full max-w-md">
-          <div aria-hidden="true" className="hero-monogram">SN</div>
-          <div className="hud-label absolute -right-2 top-2 hidden -rotate-90 sm:block">Portfolio / 2026</div>
-          <div className="absolute -bottom-2 left-0 hidden max-w-[10rem] border-l border-signal-blue/50 pl-3 sm:block">
-            <p className="hud-label">Current focus</p>
-            <p className="mt-2 font-display text-sm text-ink-300">AI-powered products &amp; thoughtful interfaces</p>
-          </div>
-          <motion.div animate={reduceMotion ? undefined : { rotate: 360 }} transition={{ duration: 32, repeat: Infinity, ease: "linear" }} className="absolute inset-[4%] rounded-full border border-dashed border-signal-cyan/20" />
-          <motion.div animate={reduceMotion ? undefined : { rotate: -360 }} transition={{ duration: 24, repeat: Infinity, ease: "linear" }} className="absolute inset-[14%] rounded-full border border-signal-cyan/15" />
-
-          <div className="gradient-border glass relative mx-10 overflow-hidden rounded-[2.25rem] p-2 sm:mx-14">
-            <div className="relative aspect-[3/4] w-full overflow-hidden rounded-[1.9rem] bg-base-800">
-              <Image src={personal.profileImage} alt={personal.name} fill priority sizes="(max-width: 768px) 80vw, 480px" className="object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-base-950 via-transparent to-signal-cyan/5" />
-              <div className="scanline absolute left-0 top-1/3 h-px w-full" />
-              <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between rounded-xl border border-white/10 bg-base-950/55 px-3 py-2.5 backdrop-blur-md">
-                <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-ink-300">SHADIA / DEV</span>
-                <span className="h-1.5 w-1.5 rounded-full bg-signal-cyan shadow-[0_0_12px_var(--acid)]" />
+              <div>
+                <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-signal-cyan">Current focus</p>
+                <h2 className="mt-3 font-display text-2xl font-semibold leading-tight tracking-[-0.04em] text-ink-100 sm:text-3xl">From useful idea to dependable software.</h2>
+                <p className="mt-4 text-sm leading-relaxed text-ink-500">End-to-end ownership, clean interfaces, and enough curiosity to ask better technical questions.</p>
               </div>
             </div>
-          </div>
+            <div className="border-t border-white/10">
+              {focusAreas.map(([number, label]) => (
+                <div key={number} className="flex items-center justify-between border-b border-white/10 px-5 py-4 last:border-0 sm:px-7">
+                  <span className="font-mono text-[10px] text-signal-violet">{number}</span>
+                  <span className="font-mono text-xs text-ink-300">{label}</span>
+                  <span className="h-1.5 w-1.5 rounded-full bg-signal-cyan" />
+                </div>
+              ))}
+            </div>
+            <div className="absolute -bottom-4 -right-3 hidden bg-base-950 px-3 py-2 font-mono text-[9px] uppercase tracking-[0.18em] text-signal-blue ring-1 ring-signal-blue/30 sm:block">Open to collaboration</div>
+          </motion.aside>
+        </div>
 
-          <motion.div animate={reduceMotion ? undefined : { y: [0, -12, 0], rotate: [0, 2, 0] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }} className="glass absolute -left-1 top-10 rounded-2xl px-4 py-3 shadow-glow sm:-left-2 sm:top-14">
-            <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-ink-500">model accuracy</p>
-            <p className="mt-1 font-display text-xl font-semibold text-signal-cyan">96.13%</p>
-          </motion.div>
-
-          <motion.div animate={reduceMotion ? undefined : { y: [0, 10, 0], rotate: [0, -2, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }} className="glass absolute bottom-10 right-0 rounded-2xl px-4 py-3 shadow-glow-violet sm:-right-2 sm:bottom-14">
-            <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-ink-500">global youth</p>
-            <p className="mt-1 font-display text-xl font-semibold text-ink-100">IOY 2026–27</p>
-          </motion.div>
-
-          <div className="absolute -bottom-10 left-1/2 hidden -translate-x-1/2 items-center gap-2 whitespace-nowrap font-mono text-[10px] uppercase tracking-[0.24em] text-ink-700 sm:flex"><FiMove /> Move through the work</div>
-        </motion.div>
-      </div>
-
-      <div className="absolute bottom-0 left-0 right-0 overflow-hidden border-y border-white/5 py-3 text-ink-700">
-        <div className="marquee-track flex w-max items-center gap-8 whitespace-nowrap font-mono text-[10px] uppercase tracking-[0.25em]">
-          {[...Array(2)].flatMap((_, i) => ["Software engineering", "Applied AI / ML", "Research-minded", "Open to collaboration"].map((item, j) => (
-            <span key={`${i}-${j}`} className="flex items-center gap-8"><i className="h-1 w-1 rounded-full bg-signal-cyan" />{item}</span>
-          )))}
+        <div className="mt-16 flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.25em] text-ink-700">
+          <span className="h-px w-12 bg-signal-cyan/60" /> Scroll to explore the work
         </div>
       </div>
     </section>
