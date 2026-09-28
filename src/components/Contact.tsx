@@ -35,6 +35,15 @@ export default function Contact() {
     if (!validate()) return;
 
     setStatus("loading");
+
+    if (!formspreeId) {
+      const subject = encodeURIComponent(form.subject || `Portfolio inquiry from ${form.name}`);
+      const body = encodeURIComponent(`Name: ${form.name}\nEmail: ${form.email}\n\n${form.message}`);
+      window.location.href = `${socials.email}?subject=${subject}&body=${body}`;
+      setStatus("success");
+      return;
+    }
+
     try {
       const res = await fetch(`https://formspree.io/f/${formspreeId}`, {
         method: "POST",
@@ -91,7 +100,7 @@ export default function Contact() {
                 </span>
                 <div>
                   <p className="text-xs text-ink-700">Phone</p>
-                  <p className="text-sm text-ink-100">{personal.phone}</p>
+                  <a href={`tel:${personal.phone.replace(/\D/g, "")}`} className="text-sm text-ink-100 hover:text-signal-cyan">{personal.phone}</a>
                 </div>
               </div>
             </div>
@@ -203,14 +212,14 @@ export default function Contact() {
                 "Sending..."
               ) : (
                 <>
-                  <FiSend /> Send Message
+                <FiSend /> {formspreeId ? "Send Message" : "Open Email Draft"}
                 </>
               )}
             </button>
 
             {status === "success" && (
               <p className="mt-4 flex items-center gap-2 text-sm text-emerald-400">
-                <FiCheckCircle /> Message sent — thank you! I&apos;ll get back to you soon.
+                <FiCheckCircle /> Your email draft is ready. Send it from your email app to complete the message.
               </p>
             )}
             {status === "error" && (

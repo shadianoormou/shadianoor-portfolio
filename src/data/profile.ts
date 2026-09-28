@@ -482,6 +482,6 @@ export const languages = [
   { name: "English", level: "Professional working proficiency" },
 ];
 
-// Replace with your own Formspree form ID (see README.md) to enable real
-// message delivery from the contact form.
-export const formspreeId = "YOUR_FORMSPREE_ID";
+// Optional: add a real Formspree ID later. The contact form uses a mailto
+// fallback while this is empty, so it remains usable without a third-party key.
+export const formspreeId = "";
