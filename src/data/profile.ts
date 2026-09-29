@@ -163,6 +163,7 @@ export type Project = {
   title: string;
   github: string;
   githubRepo?: string;
+  syncDescription?: boolean;
   linkedin?: string;
   liveUrl?: string;
   image?: string;
@@ -196,6 +197,7 @@ export const projects: Project[] = [
     title: "Aurevia Care",
     github: "https://github.com/shadianoormou/Aurevia_Care",
     githubRepo: "shadianoormou/Aurevia_Care",
+    syncDescription: false,
     linkedin: "https://www.linkedin.com/in/shadia-noor-mou/details/projects/",
     liveUrl: "https://aurevia-care.vercel.app/",
     image: "/assets/linkedin/aurevia-care-linkedin-cover.png",

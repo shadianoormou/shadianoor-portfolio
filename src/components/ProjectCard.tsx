@@ -48,7 +48,7 @@ export default function ProjectCard({ project, index, featured = false }: { proj
     return () => { document.removeEventListener("keydown", onKeyDown); document.body.style.overflow = ""; };
   }, [detailsOpen]);
 
-  const description = githubSnapshot?.description || project.description;
+  const description = project.syncDescription === false ? project.description : githubSnapshot?.description || project.description;
   const stat = project.title === "LeetCode Solutions Repository" && githubSnapshot?.fileCount
     ? { value: String(githubSnapshot.fileCount), label: "solution files · live from GitHub" }
     : project.stat;
