@@ -18,7 +18,7 @@ export const personal = {
   location: "Rajshahi, Bangladesh",
   email: "shadianoormou.cse@gmail.com",
   phone: "01760521131",
-  domain: "shadianoormou.dev",
+  domain: "shadianoor.vercel.app",
   intro:
     "I build reliable full-stack products and applied AI systems—from the first technical decision to the last shipped detail. My work sits where product thinking, software engineering, and research meet.",
   aboutParagraphs: [
