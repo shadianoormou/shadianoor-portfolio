@@ -193,19 +193,21 @@ export const projects: Project[] = [
     stat: { value: "Live", label: "Deployed on Vercel" },
   },
   {
-    title: "Aurevia Care — Digital Pharmacy & Care Navigator",
+    title: "Aurevia Care",
     github: "https://github.com/shadianoormou/Aurevia_Care",
     githubRepo: "shadianoormou/Aurevia_Care",
     linkedin: "https://www.linkedin.com/in/shadia-noor-mou/details/projects/",
-    image: "/assets/linkedin/aurevia-care.jpg",
-    tech: ["React", "Express", "Microsoft SQL Server", "Azure SQL", "Voice Search", "Healthcare UX"],
+    liveUrl: "https://aurevia-care.vercel.app/",
+    image: "/assets/linkedin/aurevia-care-linkedin-cover.png",
+    tech: ["React.js", "Node.js", "Express.js", "PostgreSQL", "Microsoft SQL Server", "Tailwind CSS"],
     description:
-      "A safety-first digital pharmacy and Rajshahi care-discovery platform designed around pharmacist-led fulfilment and verified local care listings.",
+      "Designed and developed Aurevia Care, a safety-first digital pharmacy and local-care discovery platform for Bangladesh. It combines a responsive React/Vite storefront with an Express/Node.js API and PostgreSQL-backed data layer, with Microsoft SQL Server support for local and Azure deployments. The platform is designed for pharmacist-led fulfilment and verified, source-attributed care information; it does not diagnose or replace professional medical judgement.",
     features: [
-      "Medicine browsing with secure prescription upload and pharmacist review",
-      "Inventory and order controls for structured pharmacy operations",
-      "Voice search and verified local care discovery for Bangladesh",
+      "Medicine and wellness discovery with cart, checkout, and prescription-only order gating",
+      "Secure prescription upload or manual entry with pharmacist review, plus Bangla/English text and voice Care Concierge",
+      "Location-aware care directory, authentication, inventory and order controls, and a role-aware admin operations studio",
     ],
+    stat: { value: "Live", label: "Deployed on Vercel" },
   },
   {
     title: "Image-Based Malware Classification using Hybrid CNN-BiLSTM",
